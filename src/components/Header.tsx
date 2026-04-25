@@ -22,7 +22,7 @@ export const Header = () => {
         <p className="mt-3 text-base sm:text-lg text-ink-soft leading-relaxed max-w-xl">
           <span className="text-ink font-semibold">Lançador & Estrategista Digital.</span>{" "}
           Crio e executo lançamentos completos de infoprodutos, mentorias e
-          serviços — funil, copy, tráfego pago, VSL, esteira e back-end.
+          serviços — funil, copy, tráfego pago, esteira e back-end.
           Founder do Direita Match.
         </p>
 

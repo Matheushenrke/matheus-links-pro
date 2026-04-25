@@ -31,7 +31,7 @@ export const B2BSection = () => {
         </h3>
         <p className="mt-2 text-white/70 leading-relaxed">
           Não sabe exatamente qual é o gargalo do seu negócio? Fale comigo
-          direto. Faço um diagnóstico e monto uma proposta sob medida — pra
+          direto. Eu Faço um diagnóstico e monto uma proposta sob medida — pra
           empresas que querem estruturar lançamento, escalar tráfego ou
           construir um produto digital do zero.
         </p>

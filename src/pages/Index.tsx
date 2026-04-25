@@ -49,7 +49,7 @@ const Index = () => {
                 Trabalhe <span className="text-brand">comigo</span>
               </>
             }
-            description="Duas formas de me contratar hoje: o trabalho 1:1 onde eu lanço seu produto digital, ou uma proposta personalizada para empresas."
+            description="Duas formas de me contratar hoje: o trabalho 1:1 onde eu crio/escalo sua operação digital, ou uma proposta personalizada para empresas."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
             <LaunchOfferCard />
