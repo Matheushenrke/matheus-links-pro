@@ -1,10 +1,10 @@
-import { Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
 
-const services = [
-  "Consultoria e implementação de estratégias internas",
-  "Automação de fluxos com IA",
-  "Treinamento da equipe técnica",
-  "Gestão de projetos complexos e lançamentos",
+const points = [
+  "Diagnóstico do seu negócio (online ou físico)",
+  "Estratégia de lançamento sob medida",
+  "Implementação de funil, tráfego e esteira",
+  "Acompanhamento direto comigo, sem intermediários",
 ];
 
 export const B2BSection = () => {
@@ -21,22 +21,23 @@ export const B2BSection = () => {
         }}
       />
 
-      <div className="relative">
-        <h3 className="text-xl font-semibold">Para sua empresa</h3>
-        <p className="mt-3 text-white/70 leading-relaxed">
-          Implemento fluxos de lançamento e estratégia na sua equipe:
-          automações, agentes internos e treinamento personalizado.
-        </p>
+      <div className="relative flex flex-col h-full">
+        <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
+          Para sua empresa
+        </span>
 
-        <h4 className="mt-7 text-4xl sm:text-5xl font-extrabold tracking-tight">
-          Personalizado
-        </h4>
-        <p className="mt-1 text-sm text-white/60">
-          Preços adaptados às suas necessidades
+        <h3 className="mt-4 text-2xl font-bold leading-tight">
+          Proposta personalizada
+        </h3>
+        <p className="mt-2 text-white/70 leading-relaxed">
+          Não sabe exatamente qual é o gargalo do seu negócio? Fale comigo
+          direto. Faço um diagnóstico e monto uma proposta sob medida — pra
+          empresas que querem estruturar lançamento, escalar tráfego ou
+          construir um produto digital do zero.
         </p>
 
         <ul className="mt-6 space-y-2.5 flex-1">
-          {services.map((s) => (
+          {points.map((s) => (
             <li key={s} className="flex items-start gap-3 text-sm text-white/85">
               <Check className="w-4 h-4 mt-0.5 text-white shrink-0" strokeWidth={2.5} />
               <span>{s}</span>
@@ -45,12 +46,13 @@ export const B2BSection = () => {
         </ul>
 
         <a
-          href="https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+conversar+sobre+um+projeto+para+minha+empresa"
+          href="https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+uma+proposta+personalizada+para+a+minha+empresa"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-7 block w-full text-center rounded-xl bg-white text-ink px-5 py-3.5 text-sm font-semibold hover:scale-[1.02] hover:shadow-xl hover:shadow-white/10 transition-all"
+          className="mt-7 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-white text-ink px-5 py-3.5 text-sm font-semibold hover:scale-[1.02] hover:shadow-xl hover:shadow-white/10 transition-all"
         >
-          Agendar Consultoria
+          Quero uma proposta
+          <ArrowUpRight className="w-4 h-4" />
         </a>
       </div>
     </section>

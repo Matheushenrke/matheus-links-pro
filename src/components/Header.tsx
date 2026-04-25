@@ -19,10 +19,11 @@ export const Header = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink">
           Matheus Henrike
         </h1>
-        <p className="mt-3 text-base sm:text-lg text-ink-soft leading-relaxed max-w-md">
-          Lançador & Estrategista Digital. Founder do{" "}
-          <span className="text-ink font-semibold">Direita Match</span>. Criador
-          do método D.O.D.
+        <p className="mt-3 text-base sm:text-lg text-ink-soft leading-relaxed max-w-xl">
+          <span className="text-ink font-semibold">Lançador & Estrategista Digital.</span>{" "}
+          Crio e executo lançamentos completos de infoprodutos, mentorias e
+          serviços — funil, copy, tráfego pago, VSL, esteira e back-end.
+          Founder do Direita Match.
         </p>
 
         <a
