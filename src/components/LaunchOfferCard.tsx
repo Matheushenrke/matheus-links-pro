@@ -2,11 +2,11 @@ import { Check, Rocket, ArrowUpRight } from "lucide-react";
 
 const stack = [
   "Funil completo + esteira de produtos",
-  "Copy de vendas, VSL e página de captura",
+  "Copy de vendas, VSL, quiz e página de captura",
   "Tráfego pago (Meta Ads / Google)",
   "Distribuição orgânica e posicionamento",
   "Configuração técnica: pixel, integrações, automações",
-  "Pesquisa de mercado e oferta validada",
+  "Pesquisa de mercado/público e oferta validada",
 ];
 
 export const LaunchOfferCard = () => {
@@ -27,7 +27,7 @@ export const LaunchOfferCard = () => {
       </h3>
       <p className="mt-2 text-ink-soft leading-relaxed">
         Trabalho 1:1 comigo. Eu construo e executo o lançamento do seu
-        produto digital do zero — do posicionamento à venda.
+        produto digital do zero — do posicionamento as vendas.
       </p>
 
       <ul className="mt-5 space-y-2.5 flex-1">
