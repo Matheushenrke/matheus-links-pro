@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { LaunchOfferCard } from "@/components/LaunchOfferCard";
 import { B2BSection } from "@/components/B2BSection";
 import { DireitaMatchCard } from "@/components/DireitaMatchCard";
+import { MH1000Card } from "@/components/MH1000Card";
 import { MethodDODCard } from "@/components/MethodDODCard";
 import { Footer } from "@/components/Footer";
 
@@ -68,8 +69,9 @@ const Index = () => {
             }
             description="Meus projetos próprios — em build in public e em desenvolvimento."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
             <DireitaMatchCard />
+            <MH1000Card />
             <MethodDODCard />
           </div>
         </section>
