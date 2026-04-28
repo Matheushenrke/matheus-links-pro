@@ -67,12 +67,12 @@ export const MH1000Card = () => {
       </a>
 
       <a
-        href="https://funnel-forge-47.lovable.app"
+        href=""
         target="_blank"
         rel="noopener noreferrer"
         className="mt-3 text-center text-xs font-medium text-ink-soft hover:text-ink underline underline-offset-4 transition-colors"
       >
-        Conhecer recursos
+        {" "}
       </a>
 
       <p className="mt-4 pt-4 border-t border-border/60 text-[11px] leading-relaxed text-ink-muted">
