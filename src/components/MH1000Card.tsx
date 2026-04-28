@@ -21,9 +21,9 @@ export const MH1000Card = () => {
             className="w-11 h-11 object-contain"
           />
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-violet-50 text-violet-700 px-3 py-1 text-xs font-medium">
-          <span className="w-1.5 h-1.5 rounded-full bg-violet-500" />
-          SaaS · Plataforma própria
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-xs font-medium">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+          No ar
         </span>
       </div>
 
