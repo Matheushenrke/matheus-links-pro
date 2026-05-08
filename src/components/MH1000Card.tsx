@@ -1,5 +1,6 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import logo from "@/assets/mh1000-logo.png";
+import { trackViewContent } from "@/lib/tracking";
 
 const features = [
   "Funis em mapa mental: lançamento, perpétuo e webinário",
@@ -60,6 +61,7 @@ export const MH1000Card = () => {
         href="https://funnel-forge-47.lovable.app"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackViewContent("MH.1000")}
         className="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground px-4 py-3 text-sm font-semibold hover:scale-[1.02] hover:shadow-lg hover:shadow-black/10 transition-all"
       >
         Acessar a plataforma

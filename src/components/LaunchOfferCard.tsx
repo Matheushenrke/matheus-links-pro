@@ -1,4 +1,5 @@
 import { Check, Rocket, ArrowUpRight } from "lucide-react";
+import { trackContact } from "@/lib/tracking";
 
 const stack = [
   "Funil completo + esteira de produtos",
@@ -43,6 +44,7 @@ export const LaunchOfferCard = () => {
         href="https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+ser+lan%C3%A7ado.+Quero+entender+como+funciona+o+trabalho+1%3A1+com+voc%C3%AA"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackContact("WhatsApp CTA")}
         className="mt-7 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-primary text-primary-foreground px-5 py-3.5 text-sm font-semibold hover:scale-[1.02] hover:shadow-lg hover:shadow-black/10 transition-all"
       >
         Falar com o Matheus

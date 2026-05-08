@@ -1,4 +1,5 @@
 import { ArrowUpRight, Wrench, Package, Crown } from "lucide-react";
+import { trackContact, trackViewContent } from "@/lib/tracking";
 
 const pillars = [
   {
@@ -58,6 +59,10 @@ export const MethodDODCard = () => {
         href="https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+entrar+na+lista+do+M%C3%A9todo+D.O.D"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => {
+          trackViewContent("Método D.O.D");
+          trackContact("WhatsApp CTA");
+        }}
         className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground px-4 py-3 text-sm font-semibold hover:scale-[1.02] hover:shadow-lg hover:shadow-black/10 transition-all"
       >
         Entrar na lista de espera
