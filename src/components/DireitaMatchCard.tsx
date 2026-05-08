@@ -1,5 +1,6 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import logo from "@/assets/direita-match-logo.png";
+import { trackViewContent } from "@/lib/tracking";
 
 const features = [
   "Filtro de fé e valores: cristão, conservador, patriota e família",
@@ -60,6 +61,7 @@ export const DireitaMatchCard = () => {
         href="https://app.direitamatch.com.br/login"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackViewContent("Direita Match")}
         className="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-brand text-brand-foreground px-4 py-3 text-sm font-semibold hover:scale-[1.02] hover:shadow-lg hover:shadow-brand/20 transition-all"
       >
         Acessar o app
@@ -70,6 +72,7 @@ export const DireitaMatchCard = () => {
         href="https://www.direitamatch.com.br/"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackViewContent("Direita Match")}
         className="mt-3 text-center text-xs font-medium text-ink-soft hover:text-ink underline underline-offset-4 transition-colors"
       >
         Conhecer o projeto

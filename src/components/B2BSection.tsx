@@ -1,4 +1,5 @@
 import { Check, ArrowUpRight } from "lucide-react";
+import { trackContact } from "@/lib/tracking";
 
 const points = [
   "Diagnóstico do seu negócio (online ou físico)",
@@ -49,6 +50,7 @@ export const B2BSection = () => {
           href="https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+uma+proposta+personalizada+para+a+minha+empresa"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackContact("WhatsApp CTA")}
           className="mt-7 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-white text-ink px-5 py-3.5 text-sm font-semibold hover:scale-[1.02] hover:shadow-xl hover:shadow-white/10 transition-all"
         >
           Quero uma proposta
