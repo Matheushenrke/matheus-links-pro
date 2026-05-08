@@ -1,5 +1,6 @@
 import { Check, Rocket, ArrowUpRight } from "lucide-react";
 import { trackContact } from "@/lib/tracking";
+import { addUTMParams } from "@/utils/utm";
 
 const stack = [
   "Funil completo + esteira de produtos",
@@ -41,7 +42,10 @@ export const LaunchOfferCard = () => {
       </ul>
 
       <a
-        href="https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+ser+lan%C3%A7ado.+Quero+entender+como+funciona+o+trabalho+1%3A1+com+voc%C3%AA"
+        href={addUTMParams(
+          "https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+ser+lan%C3%A7ado.+Quero+entender+como+funciona+o+trabalho+1%3A1+com+voc%C3%AA",
+          { source: "site", medium: "botao", campaign: "contato_direto" }
+        )}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackContact("WhatsApp CTA")}

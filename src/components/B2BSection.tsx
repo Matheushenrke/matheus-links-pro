@@ -1,5 +1,6 @@
 import { Check, ArrowUpRight } from "lucide-react";
 import { trackContact } from "@/lib/tracking";
+import { addUTMParams } from "@/utils/utm";
 
 const points = [
   "Diagnóstico do seu negócio (online ou físico)",
@@ -47,7 +48,10 @@ export const B2BSection = () => {
         </ul>
 
         <a
-          href="https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+uma+proposta+personalizada+para+a+minha+empresa"
+          href={addUTMParams(
+            "https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+uma+proposta+personalizada+para+a+minha+empresa",
+            { source: "site", medium: "botao", campaign: "contato_direto" }
+          )}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackContact("WhatsApp CTA")}

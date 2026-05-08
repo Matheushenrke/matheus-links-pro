@@ -1,6 +1,7 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import logo from "@/assets/mh1000-logo.png";
 import { trackViewContent } from "@/lib/tracking";
+import { addUTMParams } from "@/utils/utm";
 
 const features = [
   "Funis em mapa mental: lançamento, perpétuo e webinário",
@@ -58,7 +59,11 @@ export const MH1000Card = () => {
       </p>
 
       <a
-        href="https://funnel-forge-47.lovable.app"
+        href={addUTMParams("https://funnel-forge-47.lovable.app", {
+          source: "site",
+          medium: "portfolio",
+          campaign: "mh_1000",
+        })}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackViewContent("MH.1000")}
