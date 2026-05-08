@@ -1,5 +1,12 @@
 import { Instagram, Linkedin, Mail } from "lucide-react";
 import avatar from "@/assets/matheus-avatar.png";
+import { addUTMParams } from "@/utils/utm";
+
+const SOCIAL_UTM = {
+  source: "site",
+  medium: "social",
+  campaign: "perfil_social",
+} as const;
 
 const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
@@ -35,13 +42,13 @@ export const Header = () => {
         </a>
 
         <div className="mt-5 flex items-center justify-center sm:justify-start gap-2.5">
-          <SocialLink href="https://www.instagram.com/matheushenrikeofc/" label="Instagram">
+          <SocialLink href={addUTMParams("https://www.instagram.com/matheushenrikeofc/", SOCIAL_UTM)} label="Instagram">
             <Instagram className="w-4 h-4" />
           </SocialLink>
-          <SocialLink href="https://x.com/eumatheushenrik" label="X / Twitter">
+          <SocialLink href={addUTMParams("https://x.com/eumatheushenrik", SOCIAL_UTM)} label="X / Twitter">
             <XIcon className="w-3.5 h-3.5" />
           </SocialLink>
-          <SocialLink href="https://www.linkedin.com/in/matheus-henrike/" label="LinkedIn">
+          <SocialLink href={addUTMParams("https://www.linkedin.com/in/matheus-henrike/", SOCIAL_UTM)} label="LinkedIn">
             <Linkedin className="w-4 h-4" />
           </SocialLink>
         </div>

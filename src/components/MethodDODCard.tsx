@@ -1,5 +1,6 @@
 import { ArrowUpRight, Wrench, Package, Crown } from "lucide-react";
 import { trackContact, trackViewContent } from "@/lib/tracking";
+import { addUTMParams } from "@/utils/utm";
 
 const pillars = [
   {
@@ -56,7 +57,10 @@ export const MethodDODCard = () => {
       </ul>
 
       <a
-        href="https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+entrar+na+lista+do+M%C3%A9todo+D.O.D"
+        href={addUTMParams(
+          "https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+entrar+na+lista+do+M%C3%A9todo+D.O.D",
+          { source: "site", medium: "portfolio", campaign: "metodo_dod" }
+        )}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => {
