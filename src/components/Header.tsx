@@ -1,5 +1,5 @@
 import { Instagram, Linkedin, Mail } from "lucide-react";
-import avatar from "@/assets/matheus-avatar.webp";
+const avatar = "/og-avatar.webp";
 import { addUTMParams } from "@/utils/utm";
 
 const SOCIAL_UTM = {
