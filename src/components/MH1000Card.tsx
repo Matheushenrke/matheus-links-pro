@@ -1,5 +1,5 @@
 import { ArrowUpRight, Check } from "lucide-react";
-import logo from "@/assets/mh1000-logo.png";
+import logo from "@/assets/mh1000-logo.webp";
 import { trackViewContent } from "@/lib/tracking";
 import { addUTMParams } from "@/utils/utm";
 
