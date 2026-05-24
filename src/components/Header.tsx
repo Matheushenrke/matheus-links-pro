@@ -20,8 +20,15 @@ export const Header = () => {
       <img
         src={avatar}
         alt="Matheus Henrike — Lançador & Estrategista Digital"
+        width={160}
+        height={160}
+        loading="eager"
+        decoding="async"
+        // @ts-expect-error - fetchpriority is a valid HTML attribute
+        fetchpriority="high"
         className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border border-border shadow-sm shrink-0"
       />
+
       <div className="flex-1 text-center sm:text-left">
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink">
           Matheus Henrike
