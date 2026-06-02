@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import heroImage from "@/assets/copy-hero.webp.asset.json";
+import heroImage from "@/assets/copy-hero.png.asset.json";
 
 type FbqFn = (...args: unknown[]) => void;
 const fbq = (): FbqFn | undefined => (window as unknown as { fbq?: FbqFn }).fbq;
