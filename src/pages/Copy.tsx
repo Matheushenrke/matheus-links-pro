@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import heroImage from "@/assets/copy-hero.png.asset.json";
+import heroImage from "@/assets/hero-copy.png";
 
 type FbqFn = (...args: unknown[]) => void;
 const fbq = (): FbqFn | undefined => (window as unknown as { fbq?: FbqFn }).fbq;
@@ -151,7 +151,7 @@ const Copy = () => {
 
           <figure className="relative w-full overflow-hidden rounded-[4px] border border-[#beb711]/15 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)]">
             <img
-              src={heroImage.url}
+              src={heroImage}
               alt="Eu vou escrever sua VSL, seus anúncios, seu site, sua página de vendas e sua newsletter com copy que vende."
               className="w-full h-auto block"
               fetchPriority="high"
