@@ -136,8 +136,8 @@ const Copy = () => {
       }}
     >
       {/* HERO */}
-      <section className="relative w-full px-4 sm:px-6 pt-8 sm:pt-14 pb-6 sm:pb-10">
-        <div className="mx-auto max-w-3xl">
+      <section className="relative w-full sm:px-6 pt-8 sm:pt-14 pb-6 sm:pb-10 py-0 px-[7px] my-0 mx-0">
+        <div className="mx-auto max-w-3xl py-0">
           {/* etiqueta editorial */}
           <div className="flex items-center justify-center gap-3 mb-5 text-[10px] sm:text-xs uppercase tracking-[0.32em] text-[#beb711]/80">
             <span className="h-px w-8 bg-[#beb711]/40" />
@@ -161,9 +161,9 @@ const Copy = () => {
           </figure>
 
           {/* convite à ação editorial */}
-          <div className="mt-7 text-center">
+          <div className="mt-7 text-center my-0 py-0">
             <p className="text-base sm:text-lg italic text-[#f5efe4]/70 leading-snug">
-              Responda 5 perguntas. Eu leio. Eu te respondo.
+              {"\n"}
             </p>
             <a
               href="#quiz"
@@ -184,7 +184,7 @@ const Copy = () => {
       </div>
 
       {/* QUIZ */}
-      <section id="quiz" className="px-5 sm:px-6 py-10 sm:py-16">
+      <section id="quiz" className="px-5 sm:px-6 sm:py-16 py-[4px]">
         <div className="mx-auto max-w-2xl">
           {/* progresso */}
           <div className="mb-10">
