@@ -270,7 +270,7 @@ const Copy = () => {
                 style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
               >
                 <WhatsAppIcon className="w-5 h-5" />
-                Falar com Matheus no WhatsApp →
+                (FALAR COM ESTRATEGISTA)
               </a>
             </div>
           )}
