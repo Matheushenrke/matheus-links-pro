@@ -60,7 +60,7 @@ const questions = [
 // Microcopy entre as perguntas — voz de copywriter, persuasivo e breve.
 const interstitials = [
   "Boa...",
-  "Anotado. Continue — já estou montando o seu cenário.",
+  "— Anotado. Continue...",
   "Faltam só duas. Não pare agora.",
   "Última. Pra eu te responder com precisão.",
 ];
