@@ -59,7 +59,7 @@ const questions = [
 
 // Microcopy entre as perguntas — voz de copywriter, persuasivo e breve.
 const interstitials = [
-  "Boa. Vamos afinar o diagnóstico.",
+  "Boa...",
   "Anotado. Continue — já estou montando o seu cenário.",
   "Faltam só duas. Não pare agora.",
   "Última. Pra eu te responder com precisão.",
@@ -210,7 +210,7 @@ const Copy = () => {
             <div key={step} className="animate-fade-up">
               {/* microcopy entre perguntas */}
               {step > 0 && (
-                <p className="mb-5 text-sm sm:text-base italic text-[#beb711]/80 leading-snug">
+                <p className="mb-5 text-sm sm:text-base italic text-[#beb711]/80 leading-snug opacity-80">
                   — {interstitials[Math.min(step - 1, interstitials.length - 1)]}
                 </p>
               )}
