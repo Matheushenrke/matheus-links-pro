@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import heroImage from "@/assets/copy-hero.webp.asset.json";
 
 type FbqFn = (...args: unknown[]) => void;
 const fbq = (): FbqFn | undefined => (window as unknown as { fbq?: FbqFn }).fbq;
+
 
 const questions = [
   {
@@ -109,30 +111,32 @@ const Copy = () => {
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white antialiased">
       {/* Hero */}
-      <section className="relative w-full">
-        <div className="relative w-full h-[60vh] sm:h-[70vh] overflow-hidden">
-          <img
-            src="/placeholder.svg"
-            alt="Matheus Henrike"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/40 to-[#0a0a0a]" />
-          <div className="absolute inset-x-0 bottom-0 px-6 pb-10 sm:pb-16 text-center">
-            <h1 className="mx-auto max-w-3xl text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.02em] leading-[1.05]">
-              Eu vou escrever a copy que faz o seu negócio vender.
-            </h1>
-            <p className="mt-4 text-sm sm:text-base text-white/70 tracking-tight opacity-0">
-              ​
-            </p>
+      <section className="relative w-full px-5 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
+        <div className="mx-auto max-w-5xl">
+          <h1 className="sr-only">
+            Eu vou escrever sua VSL, seus anúncios, seu site, sua página de vendas e sua newsletter com copy que vende.
+          </h1>
+          <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]">
+            <img
+              src={heroImage.url}
+              alt="Eu vou escrever sua VSL, seus anúncios, seu site, sua página de vendas e sua newsletter com copy que vende."
+              className="w-full h-auto block"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </div>
+          <div className="mt-8 text-center">
             <a
               href="#quiz"
-              className="mt-8 inline-block text-xs sm:text-sm text-white/60 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/[0.04] px-5 py-3 text-sm sm:text-base text-white/90 hover:bg-white/[0.08] hover:border-white/40 transition-all duration-300"
             >
-              
+              Responda o quiz e veja se você se qualifica
+              <span aria-hidden="true">↓</span>
             </a>
           </div>
         </div>
       </section>
+
 
       {/* Quiz */}
       <section id="quiz" className="px-5 sm:px-6 py-14 sm:py-20">
