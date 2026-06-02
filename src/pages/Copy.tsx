@@ -111,7 +111,7 @@ const Copy = () => {
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white antialiased">
       {/* Hero */}
-      <section className="relative w-full px-5 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
+      <section className="relative w-full sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12 my-0 py-[20px] px-[9px]">
         <div className="mx-auto max-w-5xl">
           <h1 className="sr-only">
             Eu vou escrever sua VSL, seus anúncios, seu site, sua página de vendas e sua newsletter com copy que vende.
@@ -130,8 +130,7 @@ const Copy = () => {
               href="#quiz"
               className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/[0.04] px-5 py-3 text-sm sm:text-base text-white/90 hover:bg-white/[0.08] hover:border-white/40 transition-all duration-300"
             >
-              Responda o quiz e veja se você se qualifica
-              <span aria-hidden="true">↓</span>
+              
             </a>
           </div>
         </div>
@@ -139,7 +138,7 @@ const Copy = () => {
 
 
       {/* Quiz */}
-      <section id="quiz" className="px-5 sm:px-6 py-14 sm:py-20">
+      <section id="quiz" className="px-5 sm:px-6 sm:py-20 py-[5px]">
         <div className="mx-auto max-w-2xl">
           {/* progress */}
           <div className="mb-10">
