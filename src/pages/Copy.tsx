@@ -125,14 +125,6 @@ const Copy = () => {
               decoding="async"
             />
           </div>
-          <div className="mt-8 text-center">
-            <a
-              href="#quiz"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/[0.04] px-5 py-3 text-sm sm:text-base text-white/90 hover:bg-white/[0.08] hover:border-white/40 transition-all duration-300"
-            >
-              
-            </a>
-          </div>
         </div>
       </section>
 
