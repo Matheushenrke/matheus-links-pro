@@ -121,14 +121,14 @@ const Copy = () => {
             <h1 className="mx-auto max-w-3xl text-3xl sm:text-5xl md:text-6xl font-bold tracking-[-0.02em] leading-[1.05]">
               Eu vou escrever a copy que faz o seu negócio vender.
             </h1>
-            <p className="mt-4 text-sm sm:text-base text-white/70 tracking-tight">
-              VSL · Anúncios · Página de vendas · Newsletter
+            <p className="mt-4 text-sm sm:text-base text-white/70 tracking-tight opacity-0">
+              ​
             </p>
             <a
               href="#quiz"
               className="mt-8 inline-block text-xs sm:text-sm text-white/60 hover:text-white transition-colors"
             >
-              Responda o quiz abaixo e veja se você se qualifica ↓
+              
             </a>
           </div>
         </div>
