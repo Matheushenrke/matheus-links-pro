@@ -131,8 +131,7 @@ const Copy = () => {
         fontFamily:
           "'EB Garamond', 'Cormorant Garamond', Georgia, 'Times New Roman', serif",
         backgroundColor: "#0b0907",
-        backgroundImage:
-          "radial-gradient(ellipse at 50% -10%, rgba(190,183,17,0.06), transparent 55%), radial-gradient(ellipse at 50% 110%, rgba(190,183,17,0.04), transparent 60%)",
+      
       }}
     >
       {/* HERO */}
