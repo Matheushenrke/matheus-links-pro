@@ -266,7 +266,7 @@ const Copy = () => {
                 onClick={() =>
                   fbq()?.("track", "Contact", { content_name: "Quiz Copy" })
                 }
-                className="mt-8 inline-flex items-center justify-center gap-3 rounded-[3px] bg-[#25D366] text-black px-7 py-4 text-base font-semibold tracking-tight hover:scale-[1.02] hover:shadow-[0_0_40px_-5px_rgba(37,211,102,0.55)] transition-all duration-300"
+                className="mt-8 inline-flex items-center justify-center gap-3 rounded-[3px] bg-[#25D366] text-black text-base font-semibold tracking-tight hover:scale-[1.02] hover:shadow-[0_0_40px_-5px_rgba(37,211,102,0.55)] transition-all duration-300 my-[34px] px-[14px] py-[11px]"
                 style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
               >
                 <WhatsAppIcon className="w-5 h-5" />
