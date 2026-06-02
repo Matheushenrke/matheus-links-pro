@@ -249,15 +249,15 @@ const Copy = () => {
                   qualifica
                   <span
                     aria-hidden
-                    className="absolute left-0 right-0 bottom-1 h-[10px] -z-0 bg-[#beb711]/70"
+                    className="absolute left-0 right-0 bottom-1 h-[10px] -z-0 bg-[#beb711]/70 opacity-20 mx-0 px-0 my-0 py-0"
                     style={{ transform: "skewX(-6deg)" }}
                   />
                 </span>
                 .
               </h2>
               <p className="mt-5 text-base sm:text-lg italic text-[#f5efe4]/70 leading-snug max-w-md mx-auto">
-                Vou te chamar pessoalmente no WhatsApp para alinharmos a
-                estratégia.
+                Clique no botão abaixo para falar comigo pessoalmente no
+                WhatsApp para alinharmos a sua estratégia.
               </p>
               <a
                 href={buildWhatsAppUrl(answers)}
