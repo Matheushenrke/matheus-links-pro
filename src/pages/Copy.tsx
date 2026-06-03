@@ -140,51 +140,20 @@ const Copy = () => {
           {/* etiqueta editorial */}
           <div className="flex items-center justify-center gap-3 mb-5 text-[10px] sm:text-xs uppercase tracking-[0.32em] text-[#beb711]/80">
             <span className="h-px w-8 bg-[#beb711]/40" />
-            <span>Os mestres da copy</span>
+            <span></span>
             <span className="h-px w-8 bg-[#beb711]/40" />
           </div>
 
           <h1 className="sr-only">
-            Eu vou escrever sua VSL, seus anúncios, seu site, sua página de
-            vendas e sua newsletter com copy que vende.
-          </h1>
-
-          <figure className="relative w-full overflow-hidden rounded-[4px] border border-[#beb711]/15 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)]">
-            <img
-              src={heroImage}
-              alt="Eu vou escrever sua VSL, seus anúncios, seu site, sua página de vendas e sua newsletter com copy que vende."
-              className="w-full h-auto block"
-              fetchPriority="high"
-              decoding="async"
-            />
-          </figure>
-
-          {/* convite à ação editorial */}
-          <div className="mt-7 text-center my-0 py-0">
-            <p className="text-base sm:text-lg italic text-[#f5efe4]/70 leading-snug">
-              {"\n"}
-            </p>
-            <a
-              href="#quiz"
-              className="mt-4 inline-flex items-center gap-2 text-sm sm:text-base text-[#beb711] hover:text-[#e4dc4a] transition-colors duration-300"
-            >
-              <span className="border-b border-[#beb711]/60 hover:border-[#e4dc4a] pb-0.5">
-                Começar o diagnóstico
-              </span>
-              <span aria-hidden>↓</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
+...
       {/* divisor */}
-      <div className="mx-auto max-w-2xl px-6">
+      <div className="mx-auto max-w-2xl py-0 my-0 px-6">
         <div className="h-px bg-gradient-to-r from-transparent via-[#beb711]/25 to-transparent" />
       </div>
 
       {/* QUIZ */}
       <section id="quiz" className="px-5 sm:px-6 sm:py-16 py-[4px]">
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-2xl py-0 my-0">
           {/* progresso */}
           <div className="mb-10">
             <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.28em] text-[#f5efe4]/40 mb-3">
@@ -195,7 +164,7 @@ const Copy = () => {
                 </span>{" "}
                 / {questions.length}
               </span>
-              <span>{done ? "Concluído" : "Em andamento"}</span>
+              <span>{done ? "Concluído" : "\n"}</span>
             </div>
             <div className="h-[2px] w-full bg-[#f5efe4]/8 overflow-hidden">
               <div
