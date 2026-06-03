@@ -134,9 +134,9 @@ const Copy = () => {
       <section className="relative w-full sm:px-6 pt-8 sm:pt-14 pb-6 sm:pb-10 py-0 px-[7px] my-0 mx-0">
         <div className="mx-auto max-w-3xl py-0">
           <div className="flex items-center justify-center gap-3 mb-5 text-[10px] sm:text-xs uppercase tracking-[0.32em] text-[#beb711]/80">
-            <span className="h-px w-8 bg-[#beb711]/40" />
+            <span className="h-px w-8 bg-[#beb711]/40 opacity-0" />
             <span></span>
-            <span className="h-px w-8 bg-[#beb711]/40" />
+            <span className="h-px w-8 bg-[#beb711]/40 opacity-0" />
           </div>
 
           <h1 className="sr-only">
