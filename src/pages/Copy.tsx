@@ -57,7 +57,6 @@ const questions = [
   },
 ];
 
-// Microcopy entre as perguntas — voz de copywriter, persuasivo e breve.
 const interstitials = [
   "Boa...",
   "— Anotado. Continue...",
@@ -93,7 +92,6 @@ const Copy = () => {
     document.title = "Quiz · Copy que vende — Matheus Henrike";
     fbq()?.("track", "PageView");
 
-    // Carrega a fonte editorial (EB Garamond — próxima da CMU Serif do criativo).
     const id = "copy-page-fonts";
     if (!document.getElementById(id)) {
       const link = document.createElement("link");
@@ -131,16 +129,13 @@ const Copy = () => {
         fontFamily:
           "'EB Garamond', 'Cormorant Garamond', Georgia, 'Times New Roman', serif",
         backgroundColor: "#0b0907",
-      
       }}
     >
-      {/* HERO */}
       <section className="relative w-full sm:px-6 pt-8 sm:pt-14 pb-6 sm:pb-10 py-0 px-[7px] my-0 mx-0">
         <div className="mx-auto max-w-3xl py-0">
-          {/* etiqueta editorial */}
           <div className="flex items-center justify-center gap-3 mb-5 text-[10px] sm:text-xs uppercase tracking-[0.32em] text-[#beb711]/80">
             <span className="h-px w-8 bg-[#beb711]/40" />
-            <span>Os mestres da copy</span>
+            <span></span>
             <span className="h-px w-8 bg-[#beb711]/40" />
           </div>
 
@@ -159,7 +154,6 @@ const Copy = () => {
             />
           </figure>
 
-          {/* convite à ação editorial */}
           <div className="mt-7 text-center my-0 py-0">
             <p className="text-base sm:text-lg italic text-[#f5efe4]/70 leading-snug">
               {"\n"}
@@ -177,15 +171,12 @@ const Copy = () => {
         </div>
       </section>
 
-      {/* divisor */}
-      <div className="mx-auto max-w-2xl px-6">
+      <div className="mx-auto max-w-2xl py-0 my-0 px-6">
         <div className="h-px bg-gradient-to-r from-transparent via-[#beb711]/25 to-transparent" />
       </div>
 
-      {/* QUIZ */}
       <section id="quiz" className="px-5 sm:px-6 sm:py-16 py-[4px]">
-        <div className="mx-auto max-w-2xl">
-          {/* progresso */}
+        <div className="mx-auto max-w-2xl py-0 my-0">
           <div className="mb-10">
             <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.28em] text-[#f5efe4]/40 mb-3">
               <span>
@@ -195,7 +186,7 @@ const Copy = () => {
                 </span>{" "}
                 / {questions.length}
               </span>
-              <span>{done ? "Concluído" : "Em andamento"}</span>
+              <span>{done ? "Concluído" : "\n"}</span>
             </div>
             <div className="h-[2px] w-full bg-[#f5efe4]/8 overflow-hidden">
               <div
@@ -207,7 +198,6 @@ const Copy = () => {
 
           {!done ? (
             <div key={step} className="animate-fade-up">
-              {/* microcopy entre perguntas */}
               {step > 0 && (
                 <p className="mb-5 text-sm sm:text-base italic text-[#beb711]/80 leading-snug opacity-80">
                   — {interstitials[Math.min(step - 1, interstitials.length - 1)]}
@@ -276,7 +266,6 @@ const Copy = () => {
         </div>
       </section>
 
-      {/* rodapé editorial */}
       <footer className="px-6 pb-10 pt-4 text-center">
         <p className="text-[11px] uppercase tracking-[0.32em] text-[#f5efe4]/30">
           Matheus Henrike · Copy &amp; Estratégia
