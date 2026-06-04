@@ -71,9 +71,41 @@ const saveResponse = (sessionId: string, answers: string[]) => {
   }
 };
 
-const buildWhatsAppUrl = (sessionId: string) => {
+const buildWhatsAppText = (sessionId: string) => {
+  return `Olá Matheus, vim do Quiz. Código: ${sessionId}`;
+};
+
+const buildWhatsAppNativeUrl = (sessionId: string) => {
+  const text = buildWhatsAppText(sessionId);
+  return `whatsapp://send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(text)}`;
+};
+
+const buildWhatsAppWebUrl = (sessionId: string) => {
   const text = `Olá Matheus, vim do Quiz. Código: ${sessionId}`;
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+};
+
+const buildWhatsAppIntentUrl = (sessionId: string) => {
+  const text = buildWhatsAppText(sessionId);
+  const fallbackUrl = encodeURIComponent(buildWhatsAppWebUrl(sessionId));
+  return `intent://send?phone=${WHATSAPP_PHONE}&text=${encodeURIComponent(text)}#Intent;scheme=whatsapp;package=com.whatsapp;S.browser_fallback_url=${fallbackUrl};end`;
+};
+
+const openWhatsAppDirectly = (sessionId: string) => {
+  const ua = navigator.userAgent;
+  const isAndroid = /Android/i.test(ua);
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+  const targetUrl = isAndroid
+    ? buildWhatsAppIntentUrl(sessionId)
+    : buildWhatsAppNativeUrl(sessionId);
+
+  window.location.href = targetUrl;
+
+  if (!isMobile) {
+    window.setTimeout(() => {
+      window.location.href = buildWhatsAppWebUrl(sessionId);
+    }, 600);
+  }
 };
 
 const Copy = () => {
@@ -263,15 +295,15 @@ const Copy = () => {
               </p>
 
               <a
-                href={buildWhatsAppUrl(sessionId)}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
+                href={buildWhatsAppNativeUrl(sessionId)}
+                onClick={(event) => {
+                  event.preventDefault();
                   fbq()?.("track", "Contact", {
                     content_name: "Quiz Copy",
                     session_id: sessionId,
-                  })
-                }
+                  });
+                  openWhatsAppDirectly(sessionId);
+                }}
                 className="mt-6 inline-flex items-center justify-center gap-3 rounded-[3px] bg-[#25D366] text-black text-base font-semibold tracking-tight hover:scale-[1.02] hover:shadow-[0_0_40px_-5px_rgba(37,211,102,0.55)] transition-all duration-300 my-[24px] px-[14px] py-[11px]"
                 style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
               >
