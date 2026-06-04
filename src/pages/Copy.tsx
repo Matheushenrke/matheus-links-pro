@@ -186,7 +186,7 @@ const Copy = () => {
                 </span>{" "}
                 / {questions.length}
               </span>
-              <span>{done ? "Concluído" : loading ? "Analisando" : "\n"}</span>
+              <span>{done ? "Concluído" : loading ? "Analisando" : "\u00A0"}</span>
             </div>
             <div className="h-[2px] w-full bg-[#f5efe4]/8 overflow-hidden">
               <div
