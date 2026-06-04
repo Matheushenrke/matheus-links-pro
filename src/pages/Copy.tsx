@@ -156,7 +156,7 @@ const Copy = () => {
 
           <div className="mt-7 text-center my-0 py-0">
             <p className="text-base sm:text-lg italic text-[#f5efe4]/70 leading-snug">
-              {"\n"}
+              &nbsp;
             </p>
             <a
               href="#quiz"
@@ -186,7 +186,7 @@ const Copy = () => {
                 </span>{" "}
                 / {questions.length}
               </span>
-              <span>{done ? "Concluído" : loading ? "Analisando" : "\n"}</span>
+              <span>{done ? "Concluído" : loading ? "Analisando" : "\u00A0"}</span>
             </div>
             <div className="h-[2px] w-full bg-[#f5efe4]/8 overflow-hidden">
               <div
@@ -259,7 +259,7 @@ const Copy = () => {
               </p>
 
               <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[#f5efe4]/40">
-                {"\n"}
+                &nbsp;
               </p>
 
               <a
