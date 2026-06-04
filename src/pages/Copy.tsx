@@ -240,7 +240,7 @@ const Copy = () => {
           ) : (
             <div className="animate-fade-up text-center">
               <p className="mb-3 text-xs uppercase tracking-[0.32em] text-[#beb711]">
-                Pré-aprovação concluída
+                Perfeito!
               </p>
               <h2 className="text-[34px] sm:text-[48px] leading-[1.05] tracking-[-0.02em] font-semibold text-[#f5efe4]">
                 Você se{" "}
@@ -255,16 +255,11 @@ const Copy = () => {
                 .
               </h2>
               <p className="mt-5 text-base sm:text-lg italic text-[#f5efe4]/70 leading-snug max-w-md mx-auto">
-                Para liberar o seu diagnóstico personalizado e verificar a
-                disponibilidade da agenda do Matheus, clique no botão abaixo. O
-                resultado será enviado direto no seu WhatsApp.
+                Clique no botão abaixo para falar diretamente comigo.
               </p>
 
               <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[#f5efe4]/40">
-                Seu código:{" "}
-                <span className="text-[#beb711] tracking-[0.2em]">
-                  {sessionId}
-                </span>
+                {"\n"}
               </p>
 
               <a
