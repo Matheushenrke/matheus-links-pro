@@ -156,7 +156,7 @@ const Copy = () => {
 
           <div className="mt-7 text-center my-0 py-0">
             <p className="text-base sm:text-lg italic text-[#f5efe4]/70 leading-snug">
-              {"\n"}
+              &nbsp;
             </p>
             <a
               href="#quiz"
