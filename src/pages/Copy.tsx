@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import heroImage from "@/assets/hero-copy.png";
 
 type FbqFn = (...args: unknown[]) => void;
@@ -18,51 +18,31 @@ const questions = [
   {
     q: "O que você mais precisa agora?",
     options: [
-      "Copy para anúncios (Meta/Google)",
+      "Copy para anúncios",
       "VSL ou página de vendas",
-      "Newsletter / e-mail marketing",
-      "Estratégia completa (funil + copy + tráfego)",
+      "Estratégia completa / Funil",
     ],
     label: "Preciso de",
   },
   {
-    q: "Você já roda anúncios pagos hoje?",
-    options: [
-      "Sim, mas os resultados são fracos",
-      "Sim, e quero escalar",
-      "Não, ainda não comecei",
-      "Já rodei, mas parei",
-    ],
-    label: "Anúncios",
-  },
-  {
-    q: "Qual o faturamento mensal do seu negócio hoje?",
+    q: "Qual o faturamento mensal aproximado do seu negócio hoje?",
     options: [
       "Ainda não fatura",
-      "Até R$ 10 mil/mês",
-      "R$ 10 mil a R$ 50 mil/mês",
-      "Acima de R$ 50 mil/mês",
+      "Até R$ 10 mil",
+      "R$ 10 mil a R$ 50 mil",
+      "Acima de R$ 50 mil",
     ],
     label: "Faturamento",
-  },
-  {
-    q: "Pra quando você precisa disso?",
-    options: [
-      "Urgente — essa semana",
-      "Esse mês",
-      "Próximos 30 dias",
-      "Só estou pesquisando",
-    ],
-    label: "Prazo",
   },
 ];
 
 const interstitials = [
   "Boa...",
-  "— Anotado. Continue...",
-  "Faltam só duas. Não pare agora.",
-  "Última. Pra eu te responder com precisão.",
+  "— Anotado. Última pergunta.",
 ];
+
+const WHATSAPP_PHONE = "5565992843701";
+const STORAGE_KEY = "quiz_responses_v1";
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
@@ -70,23 +50,38 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const buildWhatsAppUrl = (answers: string[]) => {
-  const lines = questions.map((q, i) => `${i + 1}. ${q.label}: ${answers[i]}`);
-  const text = `Fala Matheus, vim pelo quiz do site.\n\n${lines.join("\n")}`;
-  const params = new URLSearchParams({
-    phone: "5565992843701",
-    text,
-    utm_source: "quiz",
-    utm_medium: "site",
-    utm_campaign: "copy_qualificacao",
-  });
-  return `https://api.whatsapp.com/send/?${params.toString()}`;
+const generateSessionId = () => {
+  const n = Math.floor(1000 + Math.random() * 9000);
+  return `ID-${n}`;
+};
+
+const saveResponse = (sessionId: string, answers: string[]) => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const list = raw ? (JSON.parse(raw) as unknown[]) : [];
+    const entry = {
+      sessionId,
+      createdAt: new Date().toISOString(),
+      answers: questions.map((q, i) => ({ label: q.label, answer: answers[i] ?? "" })),
+    };
+    list.push(entry);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  } catch {
+    /* ignore */
+  }
+};
+
+const buildWhatsAppUrl = (sessionId: string) => {
+  const text = `Olá Matheus, vim do Quiz. Código: ${sessionId}`;
+  return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
 };
 
 const Copy = () => {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const sessionId = useMemo(() => generateSessionId(), []);
 
   useEffect(() => {
     document.title = "Quiz · Copy que vende — Matheus Henrike";
@@ -114,13 +109,18 @@ const Copy = () => {
     const next = [...answers, option];
     setAnswers(next);
     if (step + 1 >= questions.length) {
-      setDone(true);
+      setLoading(true);
+      saveResponse(sessionId, next);
+      window.setTimeout(() => {
+        setLoading(false);
+        setDone(true);
+      }, 3000);
     } else {
       setStep(step + 1);
     }
   };
 
-  const progress = done ? 100 : (step / questions.length) * 100;
+  const progress = done || loading ? 100 : (step / questions.length) * 100;
 
   return (
     <main
@@ -182,11 +182,11 @@ const Copy = () => {
               <span>
                 Pergunta{" "}
                 <span className="text-[#beb711]">
-                  {done ? questions.length : step + 1}
+                  {done || loading ? questions.length : step + 1}
                 </span>{" "}
                 / {questions.length}
               </span>
-              <span>{done ? "Concluído" : "\n"}</span>
+              <span>{done ? "Concluído" : loading ? "Analisando" : "\n"}</span>
             </div>
             <div className="h-[2px] w-full bg-[#f5efe4]/8 overflow-hidden">
               <div
@@ -196,7 +196,17 @@ const Copy = () => {
             </div>
           </div>
 
-          {!done ? (
+          {loading ? (
+            <div className="animate-fade-up text-center py-10">
+              <div className="mx-auto w-12 h-12 rounded-full border-2 border-[#beb711]/20 border-t-[#beb711] animate-spin" />
+              <p className="mt-6 text-base sm:text-lg italic text-[#f5efe4]/80 leading-snug">
+                Analisando suas respostas...
+              </p>
+              <p className="mt-2 text-sm text-[#f5efe4]/50 italic">
+                Verificando compatibilidade com a agenda do estrategista...
+              </p>
+            </div>
+          ) : !done ? (
             <div key={step} className="animate-fade-up">
               {step > 0 && (
                 <p className="mb-5 text-sm sm:text-base italic text-[#beb711]/80 leading-snug opacity-80">
@@ -224,13 +234,13 @@ const Copy = () => {
               </div>
 
               <p className="mt-8 text-xs text-[#f5efe4]/30 italic">
-                Suas respostas vão direto para o meu WhatsApp.
+                Suas respostas geram um código único para o seu atendimento.
               </p>
             </div>
           ) : (
             <div className="animate-fade-up text-center">
               <p className="mb-3 text-xs uppercase tracking-[0.32em] text-[#beb711]">
-                Diagnóstico concluído
+                Pré-aprovação concluída
               </p>
               <h2 className="text-[34px] sm:text-[48px] leading-[1.05] tracking-[-0.02em] font-semibold text-[#f5efe4]">
                 Você se{" "}
@@ -245,21 +255,33 @@ const Copy = () => {
                 .
               </h2>
               <p className="mt-5 text-base sm:text-lg italic text-[#f5efe4]/70 leading-snug max-w-md mx-auto">
-                Clique no botão abaixo para falar comigo pessoalmente no
-                WhatsApp para alinharmos a sua estratégia.
+                Para liberar o seu diagnóstico personalizado e verificar a
+                disponibilidade da agenda do Matheus, clique no botão abaixo. O
+                resultado será enviado direto no seu WhatsApp.
               </p>
+
+              <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[#f5efe4]/40">
+                Seu código:{" "}
+                <span className="text-[#beb711] tracking-[0.2em]">
+                  {sessionId}
+                </span>
+              </p>
+
               <a
-                href={buildWhatsAppUrl(answers)}
+                href={buildWhatsAppUrl(sessionId)}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
-                  fbq()?.("track", "Contact", { content_name: "Quiz Copy" })
+                  fbq()?.("track", "Contact", {
+                    content_name: "Quiz Copy",
+                    session_id: sessionId,
+                  })
                 }
-                className="mt-8 inline-flex items-center justify-center gap-3 rounded-[3px] bg-[#25D366] text-black text-base font-semibold tracking-tight hover:scale-[1.02] hover:shadow-[0_0_40px_-5px_rgba(37,211,102,0.55)] transition-all duration-300 my-[34px] px-[14px] py-[11px]"
+                className="mt-6 inline-flex items-center justify-center gap-3 rounded-[3px] bg-[#25D366] text-black text-base font-semibold tracking-tight hover:scale-[1.02] hover:shadow-[0_0_40px_-5px_rgba(37,211,102,0.55)] transition-all duration-300 my-[24px] px-[14px] py-[11px]"
                 style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
               >
                 <WhatsAppIcon className="w-5 h-5" />
-                (FALAR COM ESTRATEGISTA)
+                FALAR COM ESTRATEGISTA
               </a>
             </div>
           )}
