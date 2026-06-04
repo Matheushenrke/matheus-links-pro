@@ -1,6 +1,6 @@
 import { Check, ArrowUpRight } from "lucide-react";
 import { trackContact } from "@/lib/tracking";
-import { addUTMParams } from "@/utils/utm";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 
 const points = [
   "Diagnóstico do seu negócio (online ou físico)",
@@ -10,6 +10,11 @@ const points = [
 ];
 
 export const B2BSection = () => {
+  const whatsAppLink = getWhatsAppLink(
+    "Fala Matheus, quero uma proposta personalizada para a minha empresa",
+    { source: "site", medium: "botao", campaign: "contato_direto" }
+  );
+
   return (
     <section className="relative overflow-hidden rounded-2xl bg-ink text-primary-foreground p-7 sm:p-9 h-full flex flex-col">
       {/* faint decorative grid */}
@@ -48,11 +53,8 @@ export const B2BSection = () => {
         </ul>
 
         <a
-          href={addUTMParams(
-            "https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+uma+proposta+personalizada+para+a+minha+empresa",
-            { source: "site", medium: "botao", campaign: "contato_direto" }
-          )}
-          target="_blank"
+          href={whatsAppLink.href}
+          {...(whatsAppLink.target ? { target: whatsAppLink.target } : {})}
           rel="noopener noreferrer"
           onClick={() => trackContact("WhatsApp CTA")}
           className="mt-7 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-white text-ink px-5 py-3.5 text-sm font-semibold hover:scale-[1.02] hover:shadow-xl hover:shadow-white/10 transition-all"

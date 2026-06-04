@@ -1,6 +1,6 @@
 import { Check, Rocket, ArrowUpRight } from "lucide-react";
 import { trackContact } from "@/lib/tracking";
-import { addUTMParams } from "@/utils/utm";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 
 const stack = [
   "Funil completo + esteira de produtos",
@@ -12,6 +12,11 @@ const stack = [
 ];
 
 export const LaunchOfferCard = () => {
+  const whatsAppLink = getWhatsAppLink(
+    "Fala Matheus, quero ser lançado. Quero entender como funciona o trabalho 1:1 com você",
+    { source: "site", medium: "botao", campaign: "contato_direto" }
+  );
+
   return (
     <article className="card-soft p-7 sm:p-9 h-full flex flex-col">
       <div className="flex items-center gap-3">
@@ -42,11 +47,8 @@ export const LaunchOfferCard = () => {
       </ul>
 
       <a
-        href={addUTMParams(
-          "https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+ser+lan%C3%A7ado.+Quero+entender+como+funciona+o+trabalho+1%3A1+com+voc%C3%AA",
-          { source: "site", medium: "botao", campaign: "contato_direto" }
-        )}
-        target="_blank"
+        href={whatsAppLink.href}
+        {...(whatsAppLink.target ? { target: whatsAppLink.target } : {})}
         rel="noopener noreferrer"
         onClick={() => trackContact("WhatsApp CTA")}
         className="mt-7 inline-flex items-center justify-center gap-2 w-full rounded-xl bg-primary text-primary-foreground px-5 py-3.5 text-sm font-semibold hover:scale-[1.02] hover:shadow-lg hover:shadow-black/10 transition-all"

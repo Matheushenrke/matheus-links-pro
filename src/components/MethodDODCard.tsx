@@ -1,6 +1,6 @@
 import { ArrowUpRight, Wrench, Package, Crown } from "lucide-react";
 import { trackContact, trackViewContent } from "@/lib/tracking";
-import { addUTMParams } from "@/utils/utm";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 
 const pillars = [
   {
@@ -21,6 +21,11 @@ const pillars = [
 ];
 
 export const MethodDODCard = () => {
+  const whatsAppLink = getWhatsAppLink(
+    "Fala Matheus, quero entrar na lista do Método D.O.D",
+    { source: "site", medium: "portfolio", campaign: "metodo_dod" }
+  );
+
   return (
     <article className="card-soft p-6 sm:p-7 flex flex-col h-full transition-transform hover:-translate-y-0.5">
       <div className="flex items-center justify-between">
@@ -57,11 +62,8 @@ export const MethodDODCard = () => {
       </ul>
 
       <a
-        href={addUTMParams(
-          "https://api.whatsapp.com/send/?phone=5565992843701&text=Fala+Matheus%2C+quero+entrar+na+lista+do+M%C3%A9todo+D.O.D",
-          { source: "site", medium: "portfolio", campaign: "metodo_dod" }
-        )}
-        target="_blank"
+        href={whatsAppLink.href}
+        {...(whatsAppLink.target ? { target: whatsAppLink.target } : {})}
         rel="noopener noreferrer"
         onClick={() => {
           trackViewContent("Método D.O.D");
