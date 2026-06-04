@@ -259,7 +259,7 @@ const Copy = () => {
               </p>
 
               <p className="mt-6 text-xs uppercase tracking-[0.28em] text-[#f5efe4]/40">
-                {"\n"}
+                &nbsp;
               </p>
 
               <a
